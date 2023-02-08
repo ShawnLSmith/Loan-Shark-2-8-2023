@@ -1,0 +1,21 @@
+Font Awesome link from class
+
+<script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+
+CSS from "Video: Mini-site Template- part Four"
+
+code[class*="language-"],
+pre[class*="language-"] {
+white-space: pre-wrap;
+word-break: break-all;
+word-wrap: break-word;
+}
+
+Javascript form "Video: Mini-site Template- part Four"
+
+Prism.plugins.NormalizeWhitespace.setDefaults({
+'remove-trailing': true,
+'remove-indent': true,
+'left-trim': true,
+'right-trim': true
+})
