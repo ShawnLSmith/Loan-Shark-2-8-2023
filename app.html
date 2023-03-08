@@ -3,7 +3,7 @@
 
 <!--=== Head Section ===-->
 <head>
-    <title>App Name: A Coding Project by Shawn Smith</title>
+    <title>Loan Shark: A Coding Project by Shawn Smith</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,93 +20,189 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!--Favicon-->
-    <link rel="icon" type="image/png" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="./img/Loan Shark.png">
 
-   </style>
+    </style>
 </head>
 
 <!--=== Body Section ===-->
 <body class="d-flex flex-column h-100">
 
-<!--=== Nav Section ===-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand" href="#"><img src="img/Shawn Smith (opaque).svg" class="d-inline-block align-text-top" alt="Shawn Smith's Logo" width="30" height="24"> APP NAME</a>
+    <!--=== Nav Section ===-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#"><img src="./img/Loan Shark.png" class="d-inline-block align-text-top"
+                    alt="Shawn Smith's Logo" width="30" height="24"> Loan Shark</a>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!--Nav Items-->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="code.html">The Code</a>
-                </li>                
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <!--Nav Items-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!--=== Main Section ===-->
-<main class="flex-shrink-0">
-    <div class="container mt-5">
+    <!--=== Main Section ===-->
+    <main class="flex-shrink-0">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
 
-    </div>
-</main>
-
- <!--=== Footer Section ===-->
- <footer class="footer mt-auto py-3 sticky-footer">
-    <div class="container-fluid">
-
-        <div class="row row-cols-1 row-cols-lg-3 gy-2">
-
-            <!--Copyright-->
-            <div class="col order-last order-lg-first text-light">
-                <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
+                <!-- App Text Section-->
+                <div class="col-lg-4 border-end border-2">
+                
+                    <!-- App Introduction-->
+                    <h1>Loan Shark: A Coding Project</h1>
+                    <h4 class="lead">
+                        Build an application that generates an amortization schedule for a simple interest loan.
+                    </h4>
+                
+                    <!--App Instructions-->
+                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                    <p>Enter a starting value in the loan amount text box. Then the time in months within the second text box. Add the
+                    interest rate percentile in the third. Your loan and amortized monthly payments will then appear in the results
+                    section broken down. </p>
+                
+                </div>
+                
+                <!--Input Values Section-->
+                <div class="row row-cols-1 row-cols-md-2 col-lg-8">
+                    <div>
+                        
+                        <h5>Enter Values</h5>
+                        <form class="cols-4 gy-2 gx-3">
+                            <div class="col">
+                                <label for="floatingInput">Loan Amount</label>
+                                <input id="loanAmount" type="number" class="form-control" placeholder="Loan Amount" value=""
+                                    aria-label="Loan Amount">
+                            </div>
+                            <div class="col">
+                                <label for="floatingInput">Term (In Months)</label>
+                                <input id="termMonths" type="number" class="form-control" placeholder="Term (Months)" value=""
+                                    aria-label="Term (Months)">
+                            </div>
+                            <div class="col">
+                                <label for="Interest Rate">Interest Rate</label>
+                                <input id="interestRate" type="number" class="form-control" placeholder="Interest Rate" value=""
+                                    aria-label="Interest Rate">
+                            </div>
+                
+                            <!--Input Button-->
+                            <div class="col-12 d-flex justify-content-end">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Calculate Mortgage</button>
+                            </div>
+                        </form>
+                
+                    </div>
+                    
+                    <!--Total Payments Section-->
+                    <div class="col">
+                
+                        <h4>Your Monthly Payments</h4>
+                        <br><br>
+                        <h5>Total Principle: <p id="tprinciple"></p>
+                        </h5>
+                        <h5>Total Interest:</h5>
+                        <h5>Total Cost:</h5>
+                
+                    </div>
+                
+                    <!--Results Section-->
+                    <div class="col">
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-md">
+                                <tbody id="results">
+                                    <!--Results Go here-->
+                                    <th>Month</th>
+                                    <th>Payment</th>
+                                    <th>Principle</th>
+                                    <th>Interest</th>
+                                    <th>Total Interest</th>
+                                    <th>Balance</th>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </main>
 
-            <!--Logo-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
-            </div>
+    <!--=== Footer Section ===-->
+    <footer class="footer mt-auto py-3 sticky-footer">
+        <div class="container-fluid">
 
-            <!--Social Icons-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                <div class="row">
-                    <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+            <div class="row row-cols-1 row-cols-lg-3 gy-2">
+
+                <!--Copyright-->
+                <div class="col order-last order-lg-first text-light">
+                    <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
+                </div>
+
+                <!--Logo-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
+                    <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
+                </div>
+
+                <!--Social Icons-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <div class="row">
+                        <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i
+                                    class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i
+                                    class="fab fa-github fa-2x"></i></a></div>
+                        <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                     <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div> -->
-                </div>                    
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!--=== Bootstrap JS Section===-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-</script>
+    <!--=== Template Section ===-->    
+<template id="loanTableTemplate">
+    <tr>
+        <td></td> <!--Index 0-->
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</template>
 
-<!--=== Custom JS Section ===-->
-<script src="./js/site.js"></script>
+    <!--=== Bootstrap JS Section===-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+
+    <!--=== Custom JS Section ===-->
+    <script src="./js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
 
 </body>
 
