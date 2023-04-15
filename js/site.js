@@ -80,7 +80,7 @@ function calculateMortgage(loanAmount, termMonths, interestRate) {
     return calculateArray;
 }
 //Function displayData
-function displayData(loanArray) {
+function displayData(loanArray) {  
 
     //Get the table body element from the page.
     let tableBody = document.getElementById("results");
@@ -88,14 +88,10 @@ function displayData(loanArray) {
     //get the template rows
     let templateRow = document.getElementById("loanTableTemplate");
 
-    //Clear Table first
-    //tableBody.innerHTML = "";
-
     let monthCount = 1;
 
     for (let index = 0; index < loanArray.length-1; index = index + 5) {
 
-        console.log("you are inside loop now");
         //importNode, new!! 9/23/2022
         let tableRow = document.importNode(templateRow.content, true);
 
@@ -121,9 +117,7 @@ function displayData(loanArray) {
         rowCols[5].classList.add(loanArray[index+4]);
         rowCols[5].textContent = formatCurrency(loanArray[index+4]);
 
-        tableBody.appendChild(tableRow);
-
-        console.log("End loop after tableBodey.appendchild");
+        tableBody.appendChild(tableRow);        
     }
 }
 

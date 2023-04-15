@@ -3,7 +3,7 @@
 
 <!--=== Head Section ===-->
 <head>
-    <title>App Name: A Coding Project by Shawn Smith</title>
+    <title>Loan Shark: A Coding Project by Shawn Smith</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!--Favicon-->
-    <link rel="icon" type="image/png" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="./img/Loan Shark.png">
 
    </style>
 </head>
@@ -33,7 +33,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
         
-        <a class="navbar-brand" href="#"><img src="img/Shawn Smith (opaque).svg" class="d-inline-block align-text-top" alt="Shawn Smith's Logo" width="30" height="24"> APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/Loan Shark.png" class="d-inline-block align-text-top" alt="Shawn Smith's Logo" width="30" height="24"> Loan Shark</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,24 +67,166 @@
 <!--=== Main Section ===-->
 <main class="flex-shrink-0">
     <div class="container py-5 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+        <h2 class="border-1 border-bottom border-dark">The Code for Loan Shark</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
-            <div class="col-lg-8">
-                <pre class="line-numbers"><code class="language-javascript">
-                    //Call HelloWorld
-                    function HelloWorld()
-                    {
-                        alert("Hello World");
-                    }
-                </code>
+            <div class="col-lg-12">
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        //Function getValues
+                        function getValues() {
+                            //Get User Values from the DOM.
+                            let loanAmount = document.getElementById("loanAmount").value;
+                            let termMonths = document.getElementById("termMonths").value;
+                            let interestRate = document.getElementById("interestRate").value;
+                            let loanArray = [];
+                            
+                            //Input validation for integers.
+                            loanAmount = parseInt(loanAmount);
+                            termMonths = parseInt(termMonths);
+                            interestRate = parseInt(interestRate);
+                        
+                            //Loop to Check if the input values are integers and call calculateMortgage and displayData.
+                            if (Number.isInteger(loanAmount) && Number.isInteger(termMonths) && Number.isInteger(interestRate) ) 
+                            {
+                                //Call calculateMortgage, and assign the array to it.
+                                loanArray = calculateMortgage(loanAmount, termMonths, interestRate);
+                        
+                                //Call displayData to Display the Collected Data.
+                                displayData(loanArray);
+                            }
+                        
+                            else 
+                            {
+                                alert("You must enter an integer in the text boxes!")
+                            }
+                        }
+                        //Function calculateMortgage
+                        function calculateMortgage(loanAmount, termMonths, interestRate) {
+                        
+                            //Declarations
+                            let calculateArray = [];
+                            let principle = 0;
+                            let interestPayment = 0;
+                            let totalInterest = 0;
+                            let remainingBalance = 0;
+                            let monthlyPayment = 0;
+                        
+                            //Assignments
+                            principle = loanAmount;
+                            remainingBalance = principle;
+                            let interest = interestRate/1200;
+                            let monthPayments = loanAmount / termMonths;
+                            let endingBalance = monthPayments - loanAmount;
+                        
+                            for (let index = 0; index < (termMonths*5); index = index +5) 
+                            {
+                        
+                            //Total Monthly Payment
+                            let totalMonthly = (loanAmount) * (interestRate / 1200) / (1 - (1 + interestRate / 1200) ** (termMonths * -1));
+                        
+                            if (index == 0 ) monthlyPayment = totalMonthly;
+                        
+                            //Interest Payment
+                            interestPayment = remainingBalance * interest;
+                            //Accumulated Interest
+                            totalInterest += interestPayment;
+                            //Principal Payment
+                            let principlePayment = totalMonthly - interestPayment;
+                            //Remaining Balance for next month.    
+                            endingBalance =  remainingBalance - principlePayment;
+                        
+                            calculateArray[index] = totalMonthly;
+                            calculateArray[index+1] = remainingBalance;
+                            calculateArray[index+2] = interestPayment;
+                            calculateArray[index+3] = totalInterest;
+                            calculateArray[index+4] = endingBalance;
+                        
+                            //remainingBalance =  remainingBalance - principlePayment;    
+                            remainingBalance = endingBalance;
+                        
+                            }
+                            
+                            document.getElementById ("tPrinciple").textContent = formatCurrency(loanAmount);
+                            document.getElementById ("tInterest").textContent = formatCurrency(totalInterest);
+                            document.getElementById ("tCost").textContent = formatCurrency(loanAmount + totalInterest);
+                            document.getElementById ("mPayment").textContent = formatCurrency(monthlyPayment);
+                        
+                            return calculateArray;
+                        }
+                        //Function displayData
+                        function displayData(loanArray) {
+                        
+                            //Get the table body element from the page.
+                            let tableBody = document.getElementById("results");
+                        
+                            //get the template rows
+                            let templateRow = document.getElementById("loanTableTemplate");
+                        
+                            //Clear Table first
+                            //tableBody.innerHTML = "";
+                        
+                            let monthCount = 1;
+                        
+                            for (let index = 0; index < loanArray.length-1; index = index + 5) {
+                        
+                                //importNode, new!! 9/23/2022
+                                let tableRow = document.importNode(templateRow.content, true);
+                        
+                                //Grab row tds from "Template Section" and put them into the array 
+                                let rowCols = tableRow.querySelectorAll("td");
+                        
+                                //Array Sets
+                                rowCols[0].classList.add(monthCount);
+                                rowCols[0].textContent = monthCount++;
+                        
+                                rowCols[1].classList.add(loanArray[index]);
+                                rowCols[1].textContent = formatCurrency(loanArray[index]);
+                        
+                                rowCols[2].classList.add(loanArray[index+1]);
+                                rowCols[2].textContent = formatCurrency(loanArray[index+1]);
+                        
+                                rowCols[3].classList.add(loanArray[index+2]);
+                                rowCols[3].textContent = formatCurrency(loanArray[index+2]);
+                        
+                                rowCols[4].classList.add(loanArray[index+3]);
+                                rowCols[4].textContent = formatCurrency(loanArray[index+3]);
+                        
+                                rowCols[5].classList.add(loanArray[index+4]);
+                                rowCols[5].textContent = formatCurrency(loanArray[index+4]);
+                        
+                                tableBody.appendChild(tableRow);                       
+                                
+                            }
+                        }
+                        
+                        function formatCurrency(cValue){
+                            let format = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                                minimumFractionDigits: 2,
+                            });
+                        
+                            return format.format(cValue);
+                        }
+                        
+                        
+                    </code>
                 </pre>
             </div>
-            <div class="col-lg-4">
-                <p>The Code is structured in one function(s).</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+            <!-- <div class="col-lg-4"> -->
+            <div class="row">
+                <p>The Code is structured in 4 function(s).</p>
+                <h5>Loan Shark</h5>
+                <p>The Function getValues: The gathering function of this program. It first goes to the app.html page and picks up the elements by their respective ids. and then initializes an array of "loanArray". Next it validates the information within those ids for integers. After that it enters into a loop to check all the calculated information is also an integer. With a catch statement to alert the user if an integer was not entered.</p>
+
+                <p>The Function calculateMortgage: The Calculation function of this app. After initializing a new array called "calculateArray" and other variables needed, the app then moves to assign the mathematical variables to their appropriate places for use later. Entering a for loop, the program then calculates th number of months that are needed from the "termMonths" variable and adds them to the index. Next is the check to see the calculations are done and then add them to the "calculateArray" to be placed into the table. Then the the app will hop over to the html to grab the index box values and send the contents to the "formatCurrency" function.</p>
+
+                <p>The Function displayData: This function gathers the data from the "results" section of the html and the template for use in the array. And then add that collected data to the columns of the "loanArray" for months and index. </p>
+
+                <p>The Function formatCurrency: This is an additional function to specifically convert input integers into currency for the rest of the program.</p>
             </div>
         </div>
+    </div>
     </div>
 </main>
 

@@ -66,14 +66,14 @@
 
     <!--=== Main Section ===-->
     <main class="flex-shrink-0">
-        <div class="container mt-5">
-            <div class="row row-cols-1 row-cols-lg-2">
+        <div class="container-fluid mt-5">
+            <div class="row">
 
                 <!-- App Text Section-->
                 <div class="col-lg-4 border-end border-2">
                 
                     <!-- App Introduction-->
-                    <h1>Loan Shark: A Coding Project</h1>
+                    <br><h1>Loan Shark: A Coding Project</h1>
                     <h4 class="lead">
                         Build an application that generates an amortization schedule for a simple interest loan.
                     </h4>
@@ -90,7 +90,7 @@
                 <div class="row row-cols-1 row-cols-md-2 col-lg-8">
                     <div>
                         
-                        <h5>Enter Values</h5>
+                        <br><h5>Enter Values</h5>
                         <form class="cols-4 gy-2 gx-3">
                             <div class="col">
                                 <label for="floatingInput">Loan Amount</label>
@@ -109,7 +109,7 @@
                             </div>
                 
                             <!--Input Button-->
-                            <div class="col-12 d-flex justify-content-end">
+                            <br><div class="col d-flex justify-content-end">
                                 <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Calculate Mortgage</button>
                             </div>
                         </form>
@@ -117,22 +117,19 @@
                     </div>
                     
                     <!--Total Payments Section-->
-                    <div class="col">
-                
-                        <h4>Your Monthly Payments<p id="mPayment"></p></h4>
-                        <br><br>
+                    <div class="col">                
+                        <br><h2>Your Monthly Payments<p id="mPayment"></p></h2>
                         <h5>Total Principle: <p id="tPrinciple"></p>
                         </h5>
                         <h5>Total Interest: <p id="tInterest"></p></h5>
-                        <h5>Total Cost:<p id="tCost"></p></h5>
-                
+                        <h5>Total Cost:<p id="tCost"></p></h5>                
                     </div>
                 
                     <!--Results Section-->
                     <div class="col">
                         <h2 class="mt-5 border-bottom border-2">Results</h2>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-md">
+                        <div class="table">
+                            <table class="table table-striped table-xl">
                                 <tbody id="results">
                                     <!--Results Go here-->
                                     <th>Month</th>
